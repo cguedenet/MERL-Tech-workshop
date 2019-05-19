@@ -1,3 +1,4 @@
+install.packages("dplyr", dependencies=TRUE)
 
 packages <- c("formattable", "sjmisc", "knitr", "ggthemes", "corrr", "psych", "tidyverse")
 
@@ -21,14 +22,20 @@ library(formattable) # to publish and format tables using rmarkdown
 # Replace the file path below with your file path.
 
 ## (switch back slashes to forward slashes "/" . The file path must be between parentheses)
-setwd("C:/Users/cguedenet/Documents/MERL Tech 2018/MERL Tech")
+#setwd("C:/Users/cguedenet/Documents/MERL Tech 2018/MERL Tech")
 
 # import
+#use read.csv("name.of.csv.file") to bring in the csv file
+
 df <- read.csv("2016.coders.survey.csv")
+
+library(httr)
+library(RCurl)
+
+df <-read.csv(text=getURL("https://raw.githubusercontent.com/cguedenet/guedenet-website/master/2016.coders.survey.csv"))
 
 # get a quick overview of your dataset, including number of variables (columns) and observations (rows)
 glimpse(df)
-
 
 #INTRODUCTION TO CONSOLE
 
